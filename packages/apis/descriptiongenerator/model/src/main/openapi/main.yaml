@@ -1,0 +1,157 @@
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this
+# software and associated documentation files (the "Software"), to deal in the Software
+# without restriction, including without limitation the rights to use, copy, modify,
+# merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+# PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: com.aws.genproductdescription.DescriptionGenerator
+paths:
+  /generateProduct:
+    post:
+      operationId: generateProduct
+      x-handler:
+        language: typescript
+      description: |
+        Using images in S3 and textual metadata, generate a title and description for the product.
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/GenProductRequestContent"
+      responses:
+        200:
+          description: Successful response
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/GenProductResponseContent"
+        500:
+          description: An internal failure at the fault of the server
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/InternalFailureErrorResponseContent"
+        400:
+          description: An error at the fault of the client sending invalid input
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/BadRequestErrorResponseContent"
+        403:
+          description: An error due to the client not being authorized to access the resource
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/NotAuthorizedErrorResponseContent"
+components:
+  schemas:
+    ProductData:
+      type: object
+      description: Customer facing product data.
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+      required:
+        - title
+        - description
+    ModelUsage:
+      type: object
+      properties:
+        inputTokens:
+          type: integer
+        outputTokens:
+          type: integer
+      required:
+        - inputTokens
+        - outputTokens
+    GenProductResponseContent:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/ProductData"
+      properties:
+        usage:
+          $ref: "#/components/schemas/ModelUsage"
+    GenProductRequestContent:
+      type: object
+      properties:
+        language:
+          type: string
+          description: The language of the product description. You can specify a natural description of the language.
+          example: Chilean Spanish
+          default: English
+        descriptionLength:
+          type: string
+          description: The desired length of the product description.
+          enum:
+            - short
+            - medium
+            - long
+          default: medium
+        productImages:
+          type: array
+          description: The S3 keys of the images for the product.
+          maxItems: 20
+          items:
+            type: string
+        metadata:
+          type: string
+          description: Metadata for the product from the manufacturer or distributor.
+        temperature:
+          type: number
+          description: The level for randomness for the LLM.
+          default: 0.7
+        model:
+          type: string
+          description: The model to use for the LLM. Currently, only Anthropic Claude 3 variants are supported.
+          default: anthropic.claude-3-haiku-20240307-v1:0
+          enum:
+            - anthropic.claude-3-haiku-20240307-v1:0
+            - anthropic.claude-3-sonnet-20240229-v1:0
+            - anthropic.claude-3-opus-20240229-v1:0
+        examples:
+          type: array
+          description: Examples of good product descriptions with the desired tone and language.
+          maxItems: 5
+          items:
+            $ref: "#/components/schemas/ProductData"
+      required:
+        - productImages
+    InternalFailureErrorResponseContent:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    BadRequestErrorResponseContent:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    NotAuthorizedErrorResponseContent:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+#checkov:skip=CKV_OPENAPI_4: Security scheme is added by Type Safe API construct
+#checkov:skip=CKV_OPENAPI_5: Security scheme is added by Type Safe API construct

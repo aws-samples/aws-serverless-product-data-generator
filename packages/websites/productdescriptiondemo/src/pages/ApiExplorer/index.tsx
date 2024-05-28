@@ -1,0 +1,214 @@
+/**
+ * Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this
+ * software and associated documentation files (the "Software"), to deal in the Software
+ * without restriction, including without limitation the rights to use, copy, modify,
+ * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+import { useCognitoAuthContext } from "@aws-northstar/ui";
+import ErrorMessage from "@aws-northstar/ui/components/CognitoAuth/components/ErrorMessage";
+import getCredentials from "@aws-northstar/ui/components/CognitoAuth/hooks/useSigv4Client/utils/getCredentials";
+import {
+  ButtonDropdown,
+  Container,
+  ContentLayout,
+  Header,
+} from "@cloudscape-design/components";
+import { useCallback, useContext, useEffect, useState } from "react";
+import SwaggerUI from "swagger-ui-react";
+import "swagger-ui-react/swagger-ui.css";
+import { RuntimeConfigContext } from "../../components/RuntimeContext";
+import { WebSocketExplorer } from "../../components/WebSocketApiExplorer";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const aws4Fetch = require("aws4fetch");
+
+/**
+ * Component to render the home ApiExplorer.
+ */
+const ApiExplorer: React.FC = () => {
+  const runtimeContext = useContext(RuntimeConfigContext);
+  const [apiSpec, setApiSpec] = useState<{ [apiName: string]: any }>({});
+  const [selectedApi, setSelectedApi] = useState<string | undefined>();
+  const [error, setError] = useState<string | undefined>();
+  const { getAuthenticatedUser, region, identityPoolId, userPoolId } =
+    useCognitoAuthContext();
+
+  // Load the OpenAPI spec
+  useEffect(() => {
+    void (async () => {
+      try {
+        setApiSpec(
+          Object.fromEntries([
+            ...(
+              await Promise.all(
+                Object.keys(runtimeContext?.typeSafeApis ?? {}).map(
+                  async (apiName) => [
+                    apiName,
+                    await fetch(`/${apiName}/api.json`).then((res) =>
+                      res.json(),
+                    ),
+                  ],
+                ),
+              )
+            ).map(([apiName, _apiSpec]) => [
+              apiName,
+              {
+                ..._apiSpec,
+                servers: [{ url: runtimeContext?.typeSafeApis[apiName] }],
+              },
+            ]),
+            ...(
+              await Promise.all(
+                Object.keys(runtimeContext?.typeSafeWebSocketApis ?? {}).map(
+                  async (apiName) => [
+                    apiName,
+                    await fetch(`/${apiName}/api.json`).then((res) =>
+                      res.json(),
+                    ),
+                  ],
+                ),
+              )
+            ).map(([apiName, _apiSpec]) => [
+              apiName,
+              {
+                ..._apiSpec,
+                url: runtimeContext?.typeSafeWebSocketApis[apiName],
+                __websocket: true,
+              },
+            ]),
+          ]),
+        );
+        setSelectedApi(
+          Object.keys({
+            ...runtimeContext?.typeSafeApis,
+            ...runtimeContext?.typeSafeWebSocketApis,
+          })[0],
+        );
+      } catch (e) {
+        setError(
+          "No OpenAPI definition detected. Ensure TypeSafeAPI(s) are passed in to Cloudscape Website construct.",
+        );
+      }
+    })();
+  }, []);
+
+  /**
+   * Interceptor which signs all requests using SigV4
+   */
+  const sigv4Interceptor = useCallback(async (r: any) => {
+    const { accessKeyId, secretAccessKey, sessionToken } = await getCredentials(
+      getAuthenticatedUser()!,
+      region,
+      identityPoolId,
+      userPoolId,
+    );
+
+    // Sign the request
+    const {
+      url: signedUrl,
+      headers,
+      body,
+      method,
+    } = await new aws4Fetch.AwsV4Signer({
+      accessKeyId,
+      secretAccessKey,
+      sessionToken,
+      region,
+      service: "execute-api",
+      url: r.url,
+      body: r.body,
+      headers: r.headers,
+      method: r.method,
+    }).sign();
+    // Return the signed request
+    return {
+      ...r,
+      url: signedUrl.toString(),
+      headers,
+      body,
+      method,
+    };
+  }, []);
+
+  return error ? (
+    <ErrorMessage>{error}</ErrorMessage>
+  ) : selectedApi ? (
+    <ContentLayout
+      header={
+        <Header
+          variant="h1"
+          actions={
+            <ButtonDropdown
+              variant="primary"
+              onItemClick={(e) => setSelectedApi(e.detail.id!)}
+              items={[
+                ...(Object.keys(runtimeContext?.typeSafeApis).length > 0
+                  ? [
+                      {
+                        text: "REST",
+                        items: Object.keys(runtimeContext?.typeSafeApis).map(
+                          (apiName) => ({
+                            text: apiName,
+                            id: apiName,
+                            disabled: selectedApi === apiName,
+                          }),
+                        ),
+                      },
+                    ]
+                  : []),
+                ...(Object.keys(runtimeContext?.typeSafeWebSocketApis).length >
+                0
+                  ? [
+                      {
+                        text: "WEBSOCKET",
+                        items: Object.keys(
+                          runtimeContext?.typeSafeWebSocketApis,
+                        ).map((apiName) => ({
+                          text: apiName,
+                          id: apiName,
+                          disabled: selectedApi === apiName,
+                        })),
+                      },
+                    ]
+                  : []),
+              ]}
+            >
+              {selectedApi}
+            </ButtonDropdown>
+          }
+        >
+          API Explorer
+        </Header>
+      }
+    >
+      {apiSpec[selectedApi]?.__websocket ? (
+        <WebSocketExplorer
+          selectedApi={selectedApi}
+          spec={apiSpec[selectedApi]}
+        />
+      ) : (
+        <Container>
+          <SwaggerUI
+            requestInterceptor={sigv4Interceptor}
+            spec={apiSpec[selectedApi]}
+          />
+        </Container>
+      )}
+    </ContentLayout>
+  ) : (
+    <></>
+  );
+};
+
+export default ApiExplorer;
