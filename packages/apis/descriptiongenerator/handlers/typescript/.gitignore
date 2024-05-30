@@ -4,6 +4,7 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/package.json
+!/LICENSE
 logs
 *.log
 npm-debug.log*
@@ -47,4 +48,3 @@ junit.xml
 /openapitools.json
 .openapi-generator
 !/project.json
-!/LICENSE

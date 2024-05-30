@@ -4,6 +4,7 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/package.json
+!/LICENSE
 !/.npmignore
 logs
 *.log
@@ -49,7 +50,6 @@ jspm_packages/
 !/packages/apis/descriptiongenerator/generated/libraries/README.md
 !/packages/apis/descriptiongenerator/handlers/README.md
 !/packages/apis/descriptiongenerator/generated/infrastructure/README.md
-!/LICENSE
 !/pnpm-workspace.yaml
 !/.syncpackrc.json
 !/.projenrc.ts

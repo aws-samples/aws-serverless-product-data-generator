@@ -4,6 +4,7 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/package.json
+!/LICENSE
 logs
 *.log
 npm-debug.log*
@@ -44,4 +45,3 @@ src
 .openapi-generator
 mocks
 !/project.json
-!/LICENSE
