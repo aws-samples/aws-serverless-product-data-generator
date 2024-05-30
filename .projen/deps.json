@@ -92,6 +92,21 @@
       "type": "override"
     },
     {
+      "name": "nth-check",
+      "version": "^2.1.1",
+      "type": "override"
+    },
+    {
+      "name": "postcss",
+      "version": "^8.4.38",
+      "type": "override"
+    },
+    {
+      "name": "semver",
+      "version": "^7.6.2",
+      "type": "override"
+    },
+    {
       "name": "wrap-ansi",
       "version": "^7.0.0",
       "type": "override"
