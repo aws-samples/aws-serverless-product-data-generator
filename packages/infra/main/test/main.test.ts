@@ -16,14 +16,20 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { App } from "aws-cdk-lib";
-import { Template } from "aws-cdk-lib/assertions";
+import { App, Aspects } from "aws-cdk-lib";
+import { Annotations, Match } from "aws-cdk-lib/assertions";
+import { AwsSolutionsChecks } from "cdk-nag";
 import { ApplicationStack } from "../src/stacks/application-stack";
 
-test("Snapshot", () => {
+test("No unsuppressed Errors", () => {
   const app = new App();
+  Aspects.of(app).add(new AwsSolutionsChecks());
   const stack = new ApplicationStack(app, "test");
-
-  const template = Template.fromStack(stack);
-  expect(template.toJSON()).toMatchSnapshot();
+  app.synth();
+  const errors = Annotations.fromStack(stack).findError(
+    "*",
+    Match.stringLikeRegexp("AwsSolutions-.*"),
+  );
+  const errorData = errors.map((error) => error.entry.data);
+  expect(errorData).toHaveLength(0);
 });
