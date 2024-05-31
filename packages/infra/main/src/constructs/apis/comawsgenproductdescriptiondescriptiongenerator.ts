@@ -73,7 +73,7 @@ export class ComawsgenproductdescriptionDescriptionGenerator extends Construct {
         environment: {
           IMAGE_BUCKET: props.imageBucket.bucketName,
         },
-        memorySize: 512,
+        memorySize: 128,
         architecture: lambda.Architecture.ARM_64,
       },
     );

@@ -18,7 +18,7 @@ The following table provides a sample cost breakdown for deploying this solution
 | **AWS Service**                       | **Dimensions**                                                                                                                                                      | **Cost [USD]** |
 |:--------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Amazon Bedrock                        | 60 requests per hour with an average of five 1 megapixel images as context(6,000 input tokens and 200 output tokens). **Anthropic Claude 3 Haiku**                  | 75.60          |
-| AWS Lambda                            | 60 requests per hour through 1 Lambda function with 512 MB of memory allocated and arm64 CPU and an average run time of 15 seconds = 43,200 requests per month      | 4.39           |
+| AWS Lambda                            | 60 requests per hour through 1 Lambda function with 128 MB of memory allocated and arm64 CPU and an average run time of 5 seconds = 43,200 requests per month       | 0.37           |
 | Amazon Simple Storage Service         | 5 product images added every minute with an average size of 1 MB with expiration after 3 days = 21.6 GB per month in S3 Standard Storage and static website hosting | 1.76           |
 | AWS API Gateway                       | 60 requests per hour                                                                                                                                                | 0.15           |
 | Amazon CloudWatch                     | 15 metrics using 5 GB data ingested for logs                                                                                                                        | 7.02           |
@@ -26,7 +26,7 @@ The following table provides a sample cost breakdown for deploying this solution
 | Amazon Cognito                        | 10 demo users                                                                                                                                                       | 0.00           |
 | AWS Web Application Firewall          | 43,200 requests per month using the AWS Managed Rule Group                                                                                                          | 6.03           |
 | Amazon CloudFront                     | Demo UI hosting. The first 10 million requests/month and 1,024 GB/month are free                                                                                    | 0.00           |
-| **Total monthly infrastructure cost** |                                                                                                                                                                     | **95.38**      |
+| **Total monthly infrastructure cost** |                                                                                                                                                                     | **91.36**      |
 
 The prototype allows you to select which model to use. The following table shows an estimated cost for each model assuming the dimensions in the above table. Anthropic Claude 3 Haiku is the default and is listed above.
 

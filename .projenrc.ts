@@ -6,6 +6,7 @@ import {
   Language,
   Library,
   ModelLanguage,
+  NodeVersion,
   TypeSafeApiProject,
 } from "@aws/pdk/type-safe-api";
 import { javascript } from "projen";
@@ -79,6 +80,7 @@ const descriptiongenerator = new TypeSafeApiProject({
           "@aws-lambda-powertools/logger@^2.1.0",
           "fast-xml-parser@^4.3.6",
         ],
+        runtimeVersion: NodeVersion.NODE_20,
         prettier: true,
         license: "MIT-0",
         copyrightOwner: "Amazon.com Inc. or its affiliates",
