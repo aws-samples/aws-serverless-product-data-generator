@@ -112,6 +112,11 @@
       "type": "override"
     },
     {
+      "name": "ws",
+      "version": "^8.17.1",
+      "type": "override"
+    },
+    {
       "name": "nx",
       "version": "^16",
       "type": "peer"

@@ -109,6 +109,7 @@ monorepo.package.addPackageResolutions(
   "nth-check@^2.1.1",
   "postcss@^8.4.38",
   "semver@^7.6.2",
+  "ws@^8.17.1",
 );
 
 new InfrastructureTsProject({
