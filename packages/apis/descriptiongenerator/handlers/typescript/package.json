@@ -43,7 +43,7 @@
     "@aws-sdk/client-bedrock-runtime": "^3.569.0",
     "@aws-sdk/client-s3": "^3.569.0",
     "descriptiongenerator-typescript-runtime": "0.0.0",
-    "fast-xml-parser": "^4.3.6"
+    "fast-xml-parser": "^4.4.1"
   },
   "main": "lib/index.js",
   "license": "MIT-0",
