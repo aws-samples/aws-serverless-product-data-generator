@@ -9,7 +9,7 @@ This README will guide you in setting up the prototype.
 
 ## Cost
 
-You are responsible for the cost of the AWS services used while running this prototype. As of this revision, the cost for running this construct with the default settings in the US East (N. Virginia) Region is approximately $58.60 per month.
+You are responsible for the cost of the AWS services used while running this prototype. As of this revision, the cost for running this construct with the default settings in the US East (N. Virginia) Region is approximately $91.36 per month.
 
 We recommend creating a budget through [AWS Cost Explorer](http://aws.amazon.com/aws-cost-management/aws-cost-explorer/) to help manage costs. Prices are subject to change. For full details, refer to the pricing webpage for each AWS service used in this solution.
 
