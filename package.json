@@ -52,6 +52,7 @@
     "overrides": {
       "@types/babel__traverse": "7.18.2",
       "@zkochan/js-yaml": "npm:js-yaml@4.1.0",
+      "fast-xml-parser": "^4.4.1",
       "nth-check": "^2.1.1",
       "postcss": "^8.4.38",
       "semver": "^7.6.2",

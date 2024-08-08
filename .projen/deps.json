@@ -92,6 +92,11 @@
       "type": "override"
     },
     {
+      "name": "fast-xml-parser",
+      "version": "^4.4.1",
+      "type": "override"
+    },
+    {
       "name": "nth-check",
       "version": "^2.1.1",
       "type": "override"
