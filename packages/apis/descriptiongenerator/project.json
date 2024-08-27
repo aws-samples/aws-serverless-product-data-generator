@@ -1,5 +1,5 @@
 {
-  "name": "descriptiongenerator",
+  "name": "@amzn/descriptiongenerator",
   "root": "packages/apis/descriptiongenerator",
   "targets": {
     "default": {

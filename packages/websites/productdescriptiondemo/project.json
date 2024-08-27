@@ -1,5 +1,5 @@
 {
-  "name": "productdescriptiondemo",
+  "name": "@amzn/productdescriptiondemo",
   "root": "packages/websites/productdescriptiondemo",
   "targets": {
     "default": {

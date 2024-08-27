@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { DefaultApiClientProvider as ComawsgenproductdescriptionDescriptionGeneratorApiClientProvider } from "descriptiongenerator-typescript-react-query-hooks";
+import { DefaultApiClientProvider as ComawsgenproductdescriptionDescriptionGeneratorApiClientProvider } from "@amzn/descriptiongenerator-typescript-react-query-hooks";
 import React from "react";
 import { usecomawsgenproductdescriptionDescriptionGeneratorApiClient } from "../../hooks/useTypeSafeApiClient";
 

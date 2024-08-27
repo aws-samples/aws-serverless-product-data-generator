@@ -1,5 +1,5 @@
 {
-  "name": "descriptiongenerator-typescript-handlers",
+  "name": "@amzn/descriptiongenerator-typescript-handlers",
   "scripts": {
     "build": "npx projen build",
     "compile": "npx projen compile",
@@ -37,12 +37,12 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@amzn/descriptiongenerator-typescript-runtime": "0.0.0",
     "@anthropic-ai/bedrock-sdk": "^0.9.6",
     "@anthropic-ai/sdk": "^0.20.8",
     "@aws-lambda-powertools/logger": "^2.1.0",
     "@aws-sdk/client-bedrock-runtime": "^3.569.0",
     "@aws-sdk/client-s3": "^3.569.0",
-    "descriptiongenerator-typescript-runtime": "0.0.0",
     "fast-xml-parser": "^4.3.6"
   },
   "main": "lib/index.js",

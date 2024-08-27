@@ -16,6 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { ProductData } from "@amzn/descriptiongenerator-typescript-react-query-hooks";
 import {
   Button,
   Container,
@@ -25,7 +26,6 @@ import {
   FormField,
   Input,
 } from "@cloudscape-design/components";
-import { ProductData } from "descriptiongenerator-typescript-react-query-hooks";
 
 export interface ExamplesProps {
   value: ProductData[];

@@ -16,11 +16,11 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import useSigV4Client from "@aws-northstar/ui/components/CognitoAuth/hooks/useSigv4Client";
 import {
   DefaultApi as comawsgenproductdescriptionDescriptionGeneratorApi,
   Configuration as comawsgenproductdescriptionDescriptionGeneratorApiConfiguration,
-} from "descriptiongenerator-typescript-react-query-hooks";
+} from "@amzn/descriptiongenerator-typescript-react-query-hooks";
+import useSigV4Client from "@aws-northstar/ui/components/CognitoAuth/hooks/useSigv4Client";
 import { useContext, useMemo } from "react";
 import { RuntimeConfigContext } from "../components/RuntimeContext";
 

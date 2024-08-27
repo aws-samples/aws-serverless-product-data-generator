@@ -198,7 +198,7 @@
       "description": "Upgrade dependencies in the monorepo for all affected projects",
       "steps": [
         {
-          "exec": "pnpm exec nx run-many --target=upgrade --output-style=stream --nx-bail --projects=descriptiongenerator,descriptiongenerator-model,descriptiongenerator-documentation-html-redoc,descriptiongenerator-documentation-markdown",
+          "exec": "pnpm exec nx run-many --target=upgrade --output-style=stream --nx-bail --projects=@amzn/descriptiongenerator,@amzn/descriptiongenerator-model,@amzn/descriptiongenerator-documentation-html-redoc,@amzn/descriptiongenerator-documentation-markdown",
           "receiveArgs": true
         },
         {

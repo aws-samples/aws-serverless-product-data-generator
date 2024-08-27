@@ -80,6 +80,11 @@
       "type": "build"
     },
     {
+      "name": "@amzn/descriptiongenerator-typescript-runtime",
+      "version": "0.0.0",
+      "type": "runtime"
+    },
+    {
       "name": "@anthropic-ai/bedrock-sdk",
       "type": "runtime"
     },
@@ -98,11 +103,6 @@
     },
     {
       "name": "@aws-sdk/client-s3",
-      "type": "runtime"
-    },
-    {
-      "name": "descriptiongenerator-typescript-runtime",
-      "version": "0.0.0",
       "type": "runtime"
     },
     {
