@@ -1,5 +1,5 @@
 {
-  "name": "descriptiongenerator-typescript-runtime",
+  "name": "@amzn/descriptiongenerator-typescript-runtime",
   "scripts": {
     "build": "npx projen build",
     "compile": "npx projen compile",

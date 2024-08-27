@@ -25,7 +25,6 @@ import {
 } from "@cloudscape-design/components";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useSayHello } from "descriptiongenerator-typescript-react-query-hooks";
 
 /**
  * Component to render the home "/" route.
@@ -34,15 +33,10 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   useEffect(() => navigate("/genProductData"), []);
 
-  // const sayHello = useSayHello({ name: "World" });
-
   return (
     <ContentLayout header={<Header>Home</Header>}>
       <SpaceBetween size="l">
-        <Container>
-          Hello World!
-          {/* {sayHello.isLoading ? <Spinner /> : <>{sayHello.data?.message}</>} */}
-        </Container>
+        <Container>Hello World!</Container>
       </SpaceBetween>
     </ContentLayout>
   );

@@ -119,13 +119,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/jest,@types/react,@types/react-dom,@types/swagger-ui-react,@types/uuid,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,@aws-crypto/sha256-js,@aws-northstar/ui,@aws-sdk/client-s3,@aws-sdk/core,@aws-sdk/protocol-http,@aws-sdk/signature-v4,@aws-sdk/types,@cloudscape-design/board-components,@cloudscape-design/components,aws4fetch,descriptiongenerator-typescript-react-query-hooks,react,react-dom,react-router-dom,swagger-ui-react,uuid,web-vitals"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/jest,@types/react,@types/react-dom,@types/swagger-ui-react,@types/uuid,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,@amzn/descriptiongenerator-typescript-react-query-hooks,@aws-crypto/sha256-js,@aws-northstar/ui,@aws-sdk/client-s3,@aws-sdk/core,@aws-sdk/protocol-http,@aws-sdk/signature-v4,@aws-sdk/types,@cloudscape-design/board-components,@cloudscape-design/components,aws4fetch,react,react-dom,react-router-dom,swagger-ui-react,uuid,web-vitals"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom @types/swagger-ui-react @types/uuid @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen typescript @aws-crypto/sha256-js @aws-northstar/ui @aws-sdk/client-s3 @aws-sdk/core @aws-sdk/protocol-http @aws-sdk/signature-v4 @aws-sdk/types @cloudscape-design/board-components @cloudscape-design/components aws4fetch browser-image-resizer descriptiongenerator-typescript-react-query-hooks react react-dom react-router-dom react-scripts swagger-ui-react uuid web-vitals"
+          "exec": "pnpm update @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom @types/swagger-ui-react @types/uuid @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen typescript @amzn/descriptiongenerator-typescript-react-query-hooks @aws-crypto/sha256-js @aws-northstar/ui @aws-sdk/client-s3 @aws-sdk/core @aws-sdk/protocol-http @aws-sdk/signature-v4 @aws-sdk/types @cloudscape-design/board-components @cloudscape-design/components aws4fetch browser-image-resizer react react-dom react-router-dom react-scripts swagger-ui-react uuid web-vitals"
         },
         {
           "exec": "npx projen"

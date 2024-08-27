@@ -1,5 +1,5 @@
 {
-  "name": "productdescriptiondemo",
+  "name": "@amzn/productdescriptiondemo",
   "scripts": {
     "build": "npx projen build",
     "compile": "npx projen compile",
@@ -37,6 +37,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
+    "@amzn/descriptiongenerator-typescript-react-query-hooks": "0.0.0",
     "@aws-crypto/sha256-js": "^5.2.0",
     "@aws-northstar/ui": "^1.1.13",
     "@aws-sdk/client-s3": "^3.569.0",
@@ -48,7 +49,6 @@
     "@cloudscape-design/components": "^3.0.625",
     "aws4fetch": "^1.0.18",
     "browser-image-resizer": "^2.4.1",
-    "descriptiongenerator-typescript-react-query-hooks": "0.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",

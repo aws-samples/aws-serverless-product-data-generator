@@ -12,7 +12,7 @@ import {
 import { javascript } from "projen";
 
 const monorepo = new MonorepoTsProject({
-  name: "monorepo",
+  name: "@amzn/monorepo",
   packageManager: javascript.NodePackageManager.PNPM,
   projenrcTs: true,
   prettier: true,
@@ -29,7 +29,7 @@ const monorepo = new MonorepoTsProject({
 const descriptiongenerator = new TypeSafeApiProject({
   parent: monorepo,
   outdir: "packages/apis/descriptiongenerator",
-  name: "descriptiongenerator",
+  name: "@amzn/descriptiongenerator",
   infrastructure: {
     language: Language.TYPESCRIPT,
     options: {
@@ -92,7 +92,7 @@ const descriptiongenerator = new TypeSafeApiProject({
 const productdescriptiondemo = new CloudscapeReactTsWebsiteProject({
   parent: monorepo,
   outdir: "packages/websites/productdescriptiondemo",
-  name: "productdescriptiondemo",
+  name: "@amzn/productdescriptiondemo",
   applicationName: "Product Description Demo",
   license: "MIT-0",
   copyrightOwner: "Amazon.com Inc. or its affiliates",
@@ -116,7 +116,7 @@ monorepo.package.addPackageResolutions(
 new InfrastructureTsProject({
   parent: monorepo,
   outdir: "packages/infra/main",
-  name: "infra",
+  name: "@amzn/infra",
   cloudscapeReactTsWebsites: [productdescriptiondemo],
   typeSafeApis: [descriptiongenerator],
   prettier: true,
