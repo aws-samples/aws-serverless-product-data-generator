@@ -106,10 +106,14 @@ const productdescriptiondemo = new CloudscapeReactTsWebsiteProject({
   prettier: true,
 });
 monorepo.package.addPackageResolutions(
+  "aws-cdk-lib@^2.155.0",
+  "axios@^1.7.4",
   "fast-xml-parser@^4.4.1",
+  "micromatch@^4.0.8",
   "nth-check@^2.1.1",
   "postcss@^8.4.38",
   "semver@^7.6.2",
+  "webpack@^5.94.0",
   "ws@^8.17.1",
 );
 
