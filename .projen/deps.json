@@ -92,8 +92,23 @@
       "type": "override"
     },
     {
+      "name": "aws-cdk-lib",
+      "version": "^2.155.0",
+      "type": "override"
+    },
+    {
+      "name": "axios",
+      "version": "^1.7.4",
+      "type": "override"
+    },
+    {
       "name": "fast-xml-parser",
       "version": "^4.4.1",
+      "type": "override"
+    },
+    {
+      "name": "micromatch",
+      "version": "^4.0.8",
       "type": "override"
     },
     {
@@ -109,6 +124,11 @@
     {
       "name": "semver",
       "version": "^7.6.2",
+      "type": "override"
+    },
+    {
+      "name": "webpack",
+      "version": "^5.94.0",
       "type": "override"
     },
     {

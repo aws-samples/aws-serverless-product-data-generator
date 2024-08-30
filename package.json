@@ -29,12 +29,12 @@
     "constructs": "^10.0.0",
     "eslint": "^8",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-prettier": "^5.2.1",
     "npm-check-updates": "^16.14.20",
     "nx": "16.0.0",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "projen": "^0.79.24",
     "syncpack": "^12",
     "ts-node": "^10.9.2",
@@ -45,17 +45,21 @@
   },
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
-    "aws-cdk-lib": "^2.147.1",
-    "cdk-nag": "^2.28.148"
+    "aws-cdk-lib": "^2.155.0",
+    "cdk-nag": "^2.28.193"
   },
   "pnpm": {
     "overrides": {
       "@types/babel__traverse": "7.18.2",
       "@zkochan/js-yaml": "npm:js-yaml@4.1.0",
+      "aws-cdk-lib": "^2.155.0",
+      "axios": "^1.7.4",
       "fast-xml-parser": "^4.4.1",
+      "micromatch": "^4.0.8",
       "nth-check": "^2.1.1",
       "postcss": "^8.4.38",
       "semver": "^7.6.2",
+      "webpack": "^5.94.0",
       "wrap-ansi": "^7.0.0",
       "ws": "^8.17.1"
     }
