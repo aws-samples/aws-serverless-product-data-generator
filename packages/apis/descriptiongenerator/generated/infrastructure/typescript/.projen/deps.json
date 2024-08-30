@@ -52,7 +52,7 @@
       "type": "peer"
     },
     {
-      "name": "@amzn/descriptiongenerator-typescript-runtime",
+      "name": "descriptiongenerator-typescript-runtime",
       "version": "0.0.0",
       "type": "runtime"
     }

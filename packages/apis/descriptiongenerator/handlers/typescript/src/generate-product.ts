@@ -16,18 +16,18 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import AnthropicBedrock from "@anthropic-ai/bedrock-sdk";
+import Anthropic, { AnthropicError } from "@anthropic-ai/sdk";
+import { ImageBlockParam, MessageParam } from "@anthropic-ai/sdk/resources";
+import { Logger } from "@aws-lambda-powertools/logger";
+import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import {
   GenerateProductChainedHandlerFunction,
   generateProductHandler,
   INTERCEPTORS,
   LoggingInterceptor,
   Response,
-} from "@amzn/descriptiongenerator-typescript-runtime";
-import AnthropicBedrock from "@anthropic-ai/bedrock-sdk";
-import Anthropic, { AnthropicError } from "@anthropic-ai/sdk";
-import { ImageBlockParam, MessageParam } from "@anthropic-ai/sdk/resources";
-import { Logger } from "@aws-lambda-powertools/logger";
-import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+} from "descriptiongenerator-typescript-runtime";
 import { XMLParser } from "fast-xml-parser";
 
 const logger = new Logger({ serviceName: "GenerateProduct" });

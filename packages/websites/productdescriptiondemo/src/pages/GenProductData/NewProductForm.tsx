@@ -16,12 +16,12 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { ProductData } from "@amzn/descriptiongenerator-typescript-react-query-hooks";
 import {
   Container,
   ExpandableSection,
   SpaceBetween,
 } from "@cloudscape-design/components";
+import { ProductData } from "descriptiongenerator-typescript-react-query-hooks";
 import Examples from "./Examples";
 import ImageUploader from "./ImageUploader";
 import LLMOptionsForm, { LLMOptions } from "./LLMOptions";

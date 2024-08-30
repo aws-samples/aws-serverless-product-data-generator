@@ -1,5 +1,5 @@
 {
-  "name": "@amzn/descriptiongenerator-typescript-react-query-hooks",
+  "name": "descriptiongenerator-typescript-react-query-hooks",
   "scripts": {
     "build": "npx projen build",
     "compile": "npx projen compile",
