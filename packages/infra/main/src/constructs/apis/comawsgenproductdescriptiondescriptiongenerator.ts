@@ -16,10 +16,6 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import {
-  Api,
-  GenerateProductFunction,
-} from "@amzn/descriptiongenerator-typescript-infra";
 import { UserIdentity } from "@aws/pdk/identity";
 import { Authorizers, Integrations } from "@aws/pdk/type-safe-api";
 import {
@@ -38,6 +34,10 @@ import {
 } from "aws-cdk-lib/aws-iam";
 import { NagSuppressions } from "cdk-nag";
 import { Construct } from "constructs";
+import {
+  Api,
+  GenerateProductFunction,
+} from "descriptiongenerator-typescript-infra";
 
 /**
  * Api construct props.

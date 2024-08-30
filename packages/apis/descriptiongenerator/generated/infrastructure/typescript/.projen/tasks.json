@@ -52,7 +52,7 @@
           "exec": "npx --yes -p @aws/pdk@$AWS_PDK_VERSION type-safe-api.clean-openapi-generated-code --code-path ."
         },
         {
-          "exec": "npx --yes -p @aws/pdk@$AWS_PDK_VERSION type-safe-api.generate --generator typescript-fetch --spec-path ../../../model/.api.json --output-path . --generator-dir typescript-cdk-infrastructure --src-dir src --tst-dir test --openapi-normalizer \"KEEP_ONLY_FIRST_TAG_IN_OPERATION=true\" --extra-vendor-extensions '{\"x-runtime-package-name\":\"@amzn/descriptiongenerator-typescript-runtime\",\"x-relative-spec-path\":\"../assets/api.json\",\"x-enable-mock-integrations\":true,\"x-handlers-python-module\":\"\",\"x-handlers-java-package\":\"\",\"x-handlers-typescript-asset-path\":\"../../../handlers/typescript/dist/lambda\",\"x-handlers-python-asset-path\":\"\",\"x-handlers-java-asset-path\":\"\",\"x-handlers-node-lambda-runtime-version\":\"NODEJS_20_X\",\"x-handlers-python-lambda-runtime-version\":\"\",\"x-handlers-java-lambda-runtime-version\":\"\"}' --generate-alias-as-model"
+          "exec": "npx --yes -p @aws/pdk@$AWS_PDK_VERSION type-safe-api.generate --generator typescript-fetch --spec-path ../../../model/.api.json --output-path . --generator-dir typescript-cdk-infrastructure --src-dir src --tst-dir test --openapi-normalizer \"KEEP_ONLY_FIRST_TAG_IN_OPERATION=true\" --extra-vendor-extensions '{\"x-runtime-package-name\":\"descriptiongenerator-typescript-runtime\",\"x-relative-spec-path\":\"../assets/api.json\",\"x-enable-mock-integrations\":true,\"x-handlers-python-module\":\"\",\"x-handlers-java-package\":\"\",\"x-handlers-typescript-asset-path\":\"../../../handlers/typescript/dist/lambda\",\"x-handlers-python-asset-path\":\"\",\"x-handlers-java-asset-path\":\"\",\"x-handlers-node-lambda-runtime-version\":\"NODEJS_20_X\",\"x-handlers-python-lambda-runtime-version\":\"\",\"x-handlers-java-lambda-runtime-version\":\"\"}' --generate-alias-as-model"
         },
         {
           "exec": "mkdir -p assets"
@@ -124,13 +124,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@aws/pdk,@types/aws-lambda,aws-cdk-lib,cdk-nag,typescript,constructs,@amzn/descriptiongenerator-typescript-runtime"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@aws/pdk,@types/aws-lambda,aws-cdk-lib,cdk-nag,typescript,constructs,descriptiongenerator-typescript-runtime"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @aws/pdk @types/aws-lambda @types/node aws-cdk-lib cdk-nag constructs projen typescript @amzn/descriptiongenerator-typescript-runtime"
+          "exec": "pnpm update @aws/pdk @types/aws-lambda @types/node aws-cdk-lib cdk-nag constructs projen typescript descriptiongenerator-typescript-runtime"
         },
         {
           "exec": "npx projen"

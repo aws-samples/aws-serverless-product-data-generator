@@ -1,5 +1,5 @@
 {
-  "name": "@amzn/monorepo",
+  "name": "monorepo",
   "scripts": {
     "build": "pnpm exec projen build",
     "clobber": "pnpm exec projen clobber",

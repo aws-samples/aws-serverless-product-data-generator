@@ -16,11 +16,6 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import {
-  GenProductRequestContentModelEnum,
-  ProductData,
-  useGenerateProduct,
-} from "@amzn/descriptiongenerator-typescript-react-query-hooks";
 import { useCognitoAuthContext } from "@aws-northstar/ui";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import {
@@ -35,6 +30,11 @@ import {
   Spinner,
   TextContent,
 } from "@cloudscape-design/components";
+import {
+  GenProductRequestContentModelEnum,
+  ProductData,
+  useGenerateProduct,
+} from "descriptiongenerator-typescript-react-query-hooks";
 import { useContext, useState } from "react";
 import { LLMOptions } from "./LLMOptions";
 import NewProductForm from "./NewProductForm";

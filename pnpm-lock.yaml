@@ -89,7 +89,7 @@ importers:
 
   packages/apis/descriptiongenerator/generated/infrastructure/typescript:
     dependencies:
-      '@amzn/descriptiongenerator-typescript-runtime':
+      descriptiongenerator-typescript-runtime:
         specifier: 0.0.0
         version: link:../../runtime/typescript
     devDependencies:
@@ -173,9 +173,6 @@ importers:
 
   packages/apis/descriptiongenerator/handlers/typescript:
     dependencies:
-      '@amzn/descriptiongenerator-typescript-runtime':
-        specifier: 0.0.0
-        version: link:../../generated/runtime/typescript
       '@anthropic-ai/bedrock-sdk':
         specifier: ^0.9.6
         version: 0.9.8(@aws-sdk/client-sso-oidc@3.637.0)
@@ -191,6 +188,9 @@ importers:
       '@aws-sdk/client-s3':
         specifier: ^3.569.0
         version: 3.637.0
+      descriptiongenerator-typescript-runtime:
+        specifier: 0.0.0
+        version: link:../../generated/runtime/typescript
       fast-xml-parser:
         specifier: ^4.4.1
         version: 4.4.1
@@ -252,9 +252,6 @@ importers:
 
   packages/infra/main:
     dependencies:
-      '@amzn/descriptiongenerator-typescript-infra':
-        specifier: 0.0.0
-        version: link:../../apis/descriptiongenerator/generated/infrastructure/typescript
       '@aws/pdk':
         specifier: ^0.23.37
         version: 0.23.37(@aws-cdk/aws-cognito-identitypool-alpha@2.104.0-alpha.0)(aws-cdk-lib@2.155.0)(cdk-nag@2.28.193)(constructs@10.3.0)(projen@0.79.27)
@@ -267,10 +264,10 @@ importers:
       constructs:
         specifier: ^10.0.5
         version: 10.3.0
-    devDependencies:
-      '@amzn/productdescriptiondemo':
+      descriptiongenerator-typescript-infra:
         specifier: 0.0.0
-        version: link:../../websites/productdescriptiondemo
+        version: link:../../apis/descriptiongenerator/generated/infrastructure/typescript
+    devDependencies:
       '@types/jest':
         specifier: ^29.5.12
         version: 29.5.12
@@ -313,6 +310,9 @@ importers:
       prettier:
         specifier: ^3.2.5
         version: 3.3.3
+      productdescriptiondemo:
+        specifier: 0.0.0
+        version: link:../../websites/productdescriptiondemo
       projen:
         specifier: ^0.79.24
         version: 0.79.27(constructs@10.3.0)
@@ -328,9 +328,6 @@ importers:
 
   packages/websites/productdescriptiondemo:
     dependencies:
-      '@amzn/descriptiongenerator-typescript-react-query-hooks':
-        specifier: 0.0.0
-        version: link:../../apis/descriptiongenerator/generated/libraries/typescript-react-query-hooks
       '@aws-crypto/sha256-js':
         specifier: ^5.2.0
         version: 5.2.0
@@ -364,6 +361,9 @@ importers:
       browser-image-resizer:
         specifier: ^2.4.1
         version: 2.4.1
+      descriptiongenerator-typescript-react-query-hooks:
+        specifier: 0.0.0
+        version: link:../../apis/descriptiongenerator/generated/libraries/typescript-react-query-hooks
       react:
         specifier: ^18.3.1
         version: 18.3.1

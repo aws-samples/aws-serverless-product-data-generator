@@ -98,11 +98,6 @@
       "type": "override"
     },
     {
-      "name": "@amzn/descriptiongenerator-typescript-react-query-hooks",
-      "version": "0.0.0",
-      "type": "runtime"
-    },
-    {
       "name": "@aws-crypto/sha256-js",
       "type": "runtime"
     },
@@ -145,6 +140,11 @@
     {
       "name": "browser-image-resizer",
       "version": "^2.4.1",
+      "type": "runtime"
+    },
+    {
+      "name": "descriptiongenerator-typescript-react-query-hooks",
+      "version": "0.0.0",
       "type": "runtime"
     },
     {

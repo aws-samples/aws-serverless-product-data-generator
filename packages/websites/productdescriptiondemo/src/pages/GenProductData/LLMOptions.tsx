@@ -16,7 +16,6 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { GenProductRequestContentDescriptionLengthEnum } from "@amzn/descriptiongenerator-typescript-react-query-hooks";
 import {
   Input,
   Select,
@@ -25,6 +24,7 @@ import {
   SpaceBetween,
 } from "@cloudscape-design/components";
 import FormField from "@cloudscape-design/components/form-field";
+import { GenProductRequestContentDescriptionLengthEnum } from "descriptiongenerator-typescript-react-query-hooks";
 import { useState } from "react";
 import "./llmoptions.css";
 import DescriptionLengthSelector from "../../components/DescriptionLengthSelector";
