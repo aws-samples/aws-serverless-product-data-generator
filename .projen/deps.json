@@ -107,7 +107,7 @@
       "type": "override"
     },
     {
-      "name": "cookies",
+      "name": "cookie",
       "version": "^0.7.0",
       "type": "override"
     },
