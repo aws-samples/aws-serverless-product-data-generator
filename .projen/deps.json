@@ -107,6 +107,11 @@
       "type": "override"
     },
     {
+      "name": "cookies",
+      "version": "^0.7.0",
+      "type": "override"
+    },
+    {
       "name": "dompurify",
       "version": "^3.1.3",
       "type": "override"
