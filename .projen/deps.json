@@ -127,6 +127,11 @@
       "type": "override"
     },
     {
+      "name": "http-proxy-middleware",
+      "version": "^2.0.7",
+      "type": "override"
+    },
+    {
       "name": "micromatch",
       "version": "^4.0.8",
       "type": "override"
