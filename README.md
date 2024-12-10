@@ -1,4 +1,6 @@
-# AWS Serverless Product Data Generator
+# AWS Serverless Product Data Generator(archived)
+
+This sample has been integrated into the [AWS Smart Product Onboarding](https://github.com/aws-samples/aws-smart-product-onboarding) accelerator.
 
 A prototype method to help sellers create product titles and descriptions using product images and optional metadata.
 
